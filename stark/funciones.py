@@ -105,9 +105,12 @@ def imprimir_genero(lista: list, genero:str)->None:
             
     print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
 
-def buscar_mayor_altura(lista: list, genero:str)->dict:
+def buscar_mayor_altura(lista: list, genero:str, valor_a_buscar:str)->dict:
 
-    """Busca el superheroe mas alto
+    """Busca tanto maximos como minimos, dependiendo la opcion que ingresa en valor a buscar
+
+    Returns:
+        _type_: devuelve un diccionario con la posicion encontrada
     """
 
     bandera_primer_altura = True
