@@ -1,6 +1,13 @@
 from data_stark import lista_personajes
 from funciones import *
 
+# devolucion de la parte uno
+# Part 1: imprimir_genero hace lo mismo en el if que el elif (:o) ---> ok
+# en la funcion de la maxima altura: para que pasar el genero si despues preguntas por un literal? ---> ok
+# La funcion es poco reutilizable y extensa Hay mucha repeticion de codigo. 
+# Ojo. Para una primera enmtrega esta bien, pero tene en cuenta los contenidos que estamos viendo en estas ultimas 
+# clases sobre funciones, reutilizacion.
+
 lista_superheroes = []
 
 lista_alturas_obtenidas = []

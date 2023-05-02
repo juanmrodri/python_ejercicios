@@ -115,6 +115,8 @@ def buscar_mayor_altura(lista: list, genero:str)->dict:
 
     genero = genero.capitalize() # por si llega a venir una minuscula, igual esta hardcodeado aca
 
+    # si se busca 
+
     for superheroe in lista:
     
         if superheroe['genero'] == genero:
