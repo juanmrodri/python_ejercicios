@@ -26,6 +26,10 @@ lista_tipo_inteligencia_filtrados = []
 
 respuesta_seleccionada = None
 
+# lista de prueba
+
+lista_vacia_test = []
+
 # for heroe in lista_personajes:
 #     lista_superheroes.append(heroe.copy())
 
@@ -35,6 +39,8 @@ respuesta_seleccionada = None
 # menu
 
 cargar_lista(lista_personajes, lista_superheroes)
+
+stark_normalizar_datos(lista_superheroes)
 
 while not(respuesta_seleccionada == "P"):
 

@@ -1,4 +1,6 @@
 
+import re
+
 def menu_opciones()->str:
 
     """menu de opciones para superheroes
@@ -36,6 +38,52 @@ def menu_opciones()->str:
     respuesta = respuesta.capitalize()
 
     return respuesta
+
+def stark_normalizar_datos(lista: list):
+
+    ret = 1
+ 
+    if (not len(lista)==0):
+
+        for personaje in lista:
+
+            for item in personaje:
+
+                if not type(personaje[item]) == int and not type(personaje[item]) == float:
+
+                    valor = re.search("\d", personaje[item])
+
+                    if valor:
+
+                        valor_aux = re.search("\.", personaje[item])
+
+                        if valor_aux:
+
+                            ret = 0
+
+                            personaje[item] = float(personaje[item])
+
+                            print(type(personaje[item]))
+
+                        else:
+
+                            ret = 0
+
+                            personaje[item] = int(personaje[item])
+
+                            print(type(personaje[item]))
+
+                else:
+
+                    print("No existen datos para normalizar")
+                    
+
+    else:
+        
+        print("Error: Lista de héroes vacía")
+    
+    return ret
+
 
 def cargar_lista(lista_personajes: list, lista_destino: list)-> None:
 
