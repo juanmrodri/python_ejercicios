@@ -1,5 +1,7 @@
 import re
 
+# texto = "Holis este es un texto de prueba. Es asi"
+
 # ejemplos
 
 # retorno = re.search("z", texto)
@@ -33,7 +35,7 @@ tema ={
 
 fecha_de_carga_ordenada = []
 
-texto = "Holis este es un texto de prueba. Es asi"
+hora_de_carga_sin_segundos = []
 
 # Tipo : BZRP MUSIC SESSIONS
 # Artista: QUEVEDO
@@ -89,8 +91,20 @@ while posicion > -1:
     posicion = posicion-1
 
 fecha_de_carga_ordenada = "/".join(fecha_de_carga_ordenada)
-    
+
 hora_de_carga = fecha_y_hora[1]
+
+hora_de_carga = hora_de_carga.split(":")
+
+posicion = len(hora_de_carga)-2 #aca descartamos los segundos
+
+while posicion > -1:
+
+    hora_de_carga_sin_segundos.append(hora_de_carga[posicion])
+
+    posicion = posicion-1
+
+hora_de_carga_sin_segundos = ":".join(hora_de_carga_sin_segundos)
 
 
 ########### aca lo printeos ############
@@ -102,6 +116,6 @@ print(f"Reproducciones: {reproducciones} M")
 print(f"Duracion: {duracion} segundos")
 print(f"Codigo: {codigo}")
 print(f"Fecha de carga: {fecha_de_carga_ordenada}")
-print(f"Hora de carga: {hora_de_carga}")
+print(f"Hora de carga: {hora_de_carga_sin_segundos}")
 
 
