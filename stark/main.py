@@ -52,25 +52,25 @@ while not(respuesta_seleccionada == "P"):
 
         case "C":
             convertir_campos_a_float(lista_superheroes)
-            aux_posicion_obtenida = buscar_mayor_altura(lista_superheroes,"M")
+            aux_posicion_obtenida = buscar_altura(lista_superheroes,"M", "mayor")
             agregar_altura_a_lista(aux_posicion_obtenida, lista_alturas_obtenidas)
             print("Calculo realizado y guardado con exito")    
 
         case "D":
             convertir_campos_a_float(lista_superheroes)
-            aux_posicion_obtenida = buscar_mayor_altura(lista_superheroes,"F")
+            aux_posicion_obtenida = buscar_altura(lista_superheroes,"F", "menor")
             agregar_altura_a_lista(aux_posicion_obtenida, lista_alturas_obtenidas)
             print("Calculo realizado y guardado con exito")
 
         case "E":
             convertir_campos_a_float(lista_superheroes)
-            aux_posicion_obtenida = buscar_menor_altura(lista_superheroes,"M")
+            aux_posicion_obtenida = buscar_altura(lista_superheroes,"M", "mayor")
             agregar_altura_a_lista(aux_posicion_obtenida, lista_alturas_obtenidas)
             print("Calculo realizado y guardado con exito")
 
         case "F":
             convertir_campos_a_float(lista_superheroes)
-            aux_posicion_obtenida = buscar_menor_altura(lista_superheroes,"F")
+            aux_posicion_obtenida = buscar_altura(lista_superheroes,"F", "menor")
             agregar_altura_a_lista(aux_posicion_obtenida, lista_alturas_obtenidas)
             print("Calculo realizado y guardado con exito")
 

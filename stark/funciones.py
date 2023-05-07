@@ -62,10 +62,10 @@ def mostrar_un_superheroe(superheroe: dict)-> None:
     """Muestra un solo superheroe
     """
 
-    auxiliar_altura = float(superheroe['altura'])
-    auxiliar_peso = float(superheroe['peso'])
+    #auxiliar_altura = float(superheroe['altura'])
+    #auxiliar_peso = float(superheroe['peso'])
 
-    print(f"{superheroe['nombre']:>20} - {superheroe['identidad']:<30} {superheroe['empresa']:<15} {auxiliar_altura:10.2f} {auxiliar_peso:10.2f} {superheroe['genero']:<3} {superheroe['color_ojos']:>30} {superheroe['color_pelo']:<20} {superheroe['fuerza']:>5} {superheroe['inteligencia']}")
+    print(f"{superheroe['nombre']:>20} - {superheroe['identidad']:<30} {superheroe['empresa']:<15} {superheroe['altura']:10.2f} {superheroe['peso']:10.2f} {superheroe['genero']:<3} {superheroe['color_ojos']:>30} {superheroe['color_pelo']:<20} {superheroe['fuerza']:>5} {superheroe['inteligencia']}")
 
 
 def listar_superheroes(lista: list, mensaje:str)-> None:
@@ -105,7 +105,7 @@ def imprimir_genero(lista: list, genero:str)->None:
             
     print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
 
-def buscar_mayor_altura(lista: list, genero:str, valor_a_buscar:str)->dict:
+def buscar_altura(lista: list, genero:str, valor_a_buscar:str)->dict:
 
     """Busca tanto maximos como minimos, dependiendo la opcion que ingresa en valor a buscar
 
@@ -115,10 +115,13 @@ def buscar_mayor_altura(lista: list, genero:str, valor_a_buscar:str)->dict:
 
     bandera_primer_altura = True
     aux_mas_alto_posicion = {}
+    aux_mas_bajo_posicion = {}
+    aux_posicion_final = {}
+    altura_contador = 0
 
     genero = genero.capitalize() # por si llega a venir una minuscula, igual esta hardcodeado aca
 
-    # si se busca 
+    # si se busca mayor hace esto
 
     for superheroe in lista:
     
@@ -127,44 +130,71 @@ def buscar_mayor_altura(lista: list, genero:str, valor_a_buscar:str)->dict:
             if bandera_primer_altura == True:
 
                 bandera_primer_altura = False
+                
                 aux_altura_max = float(superheroe['altura'])
-                #aux_altura_min = float(superheroe['altura'])
+
+                aux_altura_min = float(superheroe['altura'])
+
                 aux_mas_alto_posicion = superheroe
+
+                aux_mas_bajo_posicion = superheroe
+
+                aux_posicion_final = superheroe
 
             elif superheroe['altura'] > aux_altura_max:
+                
                 aux_altura_max = superheroe['altura']
+
                 aux_mas_alto_posicion = superheroe
-
-    return aux_mas_alto_posicion
-
-def buscar_menor_altura(lista: list, genero:str)->None:
-
-    """Busca el superheroe mas bajo del genero masculino
-
-    """
-
-    bandera_primer_altura = True
-    aux_mas_bajo_posicion = {}
-    
-    genero = genero.capitalize() # por si llega a venir una minuscula, igual esta hardcodeado aca
-    
-    for superheroe in lista:
-    
-        if superheroe['genero'] == genero:
             
-            if bandera_primer_altura == True:
-
-                bandera_primer_altura = False
-                #aux_altura_max = float(superheroe['altura'])
-                aux_altura_min = float(superheroe['altura'])
-                aux_mas_bajo_posicion = superheroe
-
             elif superheroe['altura'] < aux_altura_min:
+                
                 aux_altura_min = superheroe['altura']
+                
                 aux_mas_bajo_posicion = superheroe
+                
+            if valor_a_buscar == "mayor":
 
-    return aux_mas_bajo_posicion
+                aux_posicion_final = aux_mas_alto_posicion
 
+            elif valor_a_buscar == "menor":
+
+                aux_posicion_final = aux_mas_bajo_posicion
+
+    # aca chequeamos la posibilidad de alguna igualdad de valores, si el contador da mas de 
+
+    altura_contador = buscar_igualdad_de_valores(lista,valor_a_buscar,aux_altura_max,aux_altura_min)
+
+        
+    print(altura_contador)
+
+    return aux_posicion_final
+
+
+def buscar_igualdad_de_valores(lista:list, valor_a_buscar:str,altura_max,altura_min)->int:
+
+    """Recorre una lista buscando la igualdad de un valor, para contarlo
+
+    Returns:
+        _type_: retorna la cuenta
+    """
+    contador = 0
+
+    for heroe in lista:
+
+        if valor_a_buscar == "mayor":
+
+            if heroe['altura'] == altura_max:
+
+                contador = contador +1
+
+        elif valor_a_buscar == "menor":
+
+                if heroe['altura'] == altura_min:
+
+                    contador = contador +1
+
+    return contador
 
 def agregar_altura_a_lista(diccionario, lista:list):
 
