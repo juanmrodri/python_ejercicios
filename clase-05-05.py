@@ -27,8 +27,15 @@ with open("DATA.csv","r") as file:
         linea = linea.replace("\n","")
         linea = linea.split(",")
         personas.append(linea)
-        print(linea)
+        #print(linea)
+
+
+print("\t\t\t\t\t*** Datos de personas *** ")
+
+print("-----------------------------------------------------------------------------------------------------------------------------------")    
 
 for persona in personas:
+    
+    print(f"id: {persona[0]} - nombre: {persona[1]} - apellido: {persona[2]} - email: {persona[3]} - genero: {persona[4]} - edad: {persona[5]}")
 
-    print(persona)
+    print("-----------------------------------------------------------------------------------------------------------------------------------")
