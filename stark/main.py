@@ -40,8 +40,6 @@ lista_vacia_test = []
 
 cargar_lista(lista_personajes, lista_superheroes)
 
-stark_normalizar_datos(lista_superheroes)
-
 while not(respuesta_seleccionada == "P"):
 
     # aca llamamos al menu
@@ -153,6 +151,26 @@ while not(respuesta_seleccionada == "P"):
             if(respuesta_seleccionada == "s"):
                 print("Adios!")
                 break
+
+        # caso de prueba para star normalizar
+        case "Q":
+
+            retorno_normalizar = stark_normalizar_datos(lista_superheroes)
+
+            print(retorno_normalizar)
+
+            if retorno_normalizar == -1:
+
+                print("No es necesario realizar ningun proceso")
+
+            elif retorno_normalizar:
+
+                print("Proceso realizado correctamente!")
+
+            else:
+
+                print("Por favor intente nuevamente cuando existan datos en la lista")    
+
 
         case other:
             print("Por favor, ingrese una opcion valida")

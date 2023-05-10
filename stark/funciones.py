@@ -41,9 +41,21 @@ def menu_opciones()->str:
 
 def stark_normalizar_datos(lista: list):
 
-    ret = 1
+    """Recorrer la lista y convertir al tipo de dato correcto las keys (solo con las keys que representan datos numéricos)
+
+    Returns:
+        _type_: retorna un 1 si tuvo exito, 0 si la lista esta vacia o -1 si no existian datos en la lista para normalizar
+    """
+
+    ret = 0
+
+    verificacion_de_modificacion = (verificar_modificacion(lista))
+
+    modificacion_realizada = False
  
-    if (not len(lista)==0):
+    if (not len(lista)==0) and verificacion_de_modificacion:
+
+        print(f"esto devuelve verificacion: {verificacion_de_modificacion}")
 
         for personaje in lista:
 
@@ -59,30 +71,58 @@ def stark_normalizar_datos(lista: list):
 
                         if valor_aux:
 
-                            ret = 0
-
+                            modificacion_realizada = True
                             personaje[item] = float(personaje[item])
 
-                            print(type(personaje[item]))
+                            #print(type(personaje[item]))
 
                         else:
 
-                            ret = 0
-
+                            modificacion_realizada = True
                             personaje[item] = int(personaje[item])
 
-                            print(type(personaje[item]))
+                            #print(type(personaje[item]))     
 
-                else:
+        if modificacion_realizada:
 
-                    print("No existen datos para normalizar")
-                    
+            ret = 1
+
+            print("Modificacion realizada")
+            
+        else:
+
+            ret = -1
 
     else:
         
         print("Error: Lista de héroes vacía")
     
     return ret
+
+def verificar_modificacion(lista: list)->int:
+
+
+    """verifica si es necesario normalizar
+
+    Returns:
+        _type_: _description_
+    """
+    evaluar = 0
+
+    if (not len(lista)==0):
+
+        for personaje in lista:
+
+            for item in personaje:
+
+                if (not type(personaje[item]) == int) and (not type(personaje[item]) == float):
+
+                    evaluar = evaluar+1
+                    break
+
+    return evaluar
+
+
 
 
 def cargar_lista(lista_personajes: list, lista_destino: list)-> None:
