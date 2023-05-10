@@ -102,10 +102,10 @@ def stark_normalizar_datos(lista: list):
 def verificar_modificacion(lista: list)->int:
 
 
-    """verifica si es necesario normalizar
+    """verifica si es necesario normalizar algun valor, si por lo menos existe uno, retorna
 
     Returns:
-        _type_: _description_
+        _type_: 0 si no existe ningun valor a modificar o un numero distinto a 0 para indicar que si es necesario
     """
     evaluar = 0
 
@@ -122,7 +122,33 @@ def verificar_modificacion(lista: list)->int:
 
     return evaluar
 
+# funcion de prueba para usar obtener nombre
+def nombres_a_lower(superheroe:dict):
 
+
+    for key in superheroe:
+
+        if key == "nombre":
+
+           superheroe[key] =  superheroe[key].lower()
+
+
+def obtener_nombre(superheroe:dict):
+
+    for key in superheroe:
+
+        if key == "nombre":
+
+            for letra in superheroe[key]:
+
+                aux_len = len(superheroe[key])
+
+                print(aux_len)
+
+                #print(f"\t{letra}")
+
+
+    #print(f"{superheroe['nombre']:>20} - {superheroe['identidad']:<30} {superheroe['empresa']:<15} {superheroe['altura']:10.2f} {superheroe['peso']:10.2f} {superheroe['genero']:<3} {superheroe['color_ojos']:>30} {superheroe['color_pelo']:<20} {superheroe['fuerza']:>5} {superheroe['inteligencia']}")
 
 
 def cargar_lista(lista_personajes: list, lista_destino: list)-> None:

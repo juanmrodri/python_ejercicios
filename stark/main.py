@@ -152,7 +152,7 @@ while not(respuesta_seleccionada == "P"):
                 print("Adios!")
                 break
 
-        # caso de prueba para star normalizar
+        # casos de prueba para star normalizar, obtener nombre,
         case "Q":
 
             retorno_normalizar = stark_normalizar_datos(lista_superheroes)
@@ -171,6 +171,21 @@ while not(respuesta_seleccionada == "P"):
 
                 print("Por favor intente nuevamente cuando existan datos en la lista")    
 
+
+        case "R":
+
+            for heroe in lista_superheroes:
+
+                nombres_a_lower(heroe)
+
+            listar_superheroes(lista_superheroes, "En lower")
+
+        case "S":
+
+            for heroe in lista_superheroes:
+
+                obtener_nombre(heroe)
+            
 
         case other:
             print("Por favor, ingrese una opcion valida")
