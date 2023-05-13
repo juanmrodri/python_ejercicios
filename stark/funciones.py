@@ -140,11 +140,21 @@ def obtener_nombre(superheroe:dict):
 
         if key == "nombre":
 
-            for letra in superheroe[key]:
+            hay_espacios = re.search(" ",superheroe[key])
 
-                aux_len = len(superheroe[key])
+            if (not hay_espacios == None):
 
-                print(aux_len)
+                hay_espacios = superheroe[key].split(" ")
+
+                for palabra in hay_espacios:
+
+                    palabra = palabra.replace(palabra,palabra.capitalize())
+
+                    print(palabra)
+   
+                print(hay_espacios)
+
+            print(superheroe[key])
 
                 #print(f"\t{letra}")
 
