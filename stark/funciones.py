@@ -122,7 +122,8 @@ def verificar_modificacion(lista: list)->int:
 
     return evaluar
 
-# funcion de prueba para usar obtener nombre
+# funcion de prueba para usar obtener nombre, ya que estan en mayuscula todos
+
 def nombres_a_lower(superheroe:dict):
 
 
