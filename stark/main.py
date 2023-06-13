@@ -184,8 +184,21 @@ while not(respuesta_seleccionada == "P"):
 
             for heroe in lista_superheroes:
 
-                obtener_nombre(heroe)
+                modificar_nombre_a_mayuscula(heroe)
+
+        case "T":
+
+            for heroe in lista_superheroes:
+
+                listar_superheroes(lista_superheroes, "Lista de todos los superheroes")
             
+        case "U":
+
+            for heroe in lista_superheroes:
+
+                nombre_obtenido = obterner_nombre(heroe)
+                
+                print(nombre_obtenido)
 
         case other:
             print("Por favor, ingrese una opcion valida")

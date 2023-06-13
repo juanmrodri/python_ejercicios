@@ -134,7 +134,7 @@ def nombres_a_lower(superheroe:dict):
            superheroe[key] =  superheroe[key].lower()
 
 
-def obtener_nombre(superheroe:dict):
+def modificar_nombre_a_mayuscula(superheroe:dict):
 
     for key in superheroe:
 
@@ -142,25 +142,122 @@ def obtener_nombre(superheroe:dict):
 
             hay_espacios = re.search(" ",superheroe[key])
 
-            if (not hay_espacios == None):
+            print(bool(hay_espacios))
+
+            if (hay_espacios):
 
                 hay_espacios = superheroe[key].split(" ")
 
-                for palabra in hay_espacios:
+                cantidad_palabras = len(hay_espacios)
 
-                    palabra = palabra.replace(palabra,palabra.capitalize())
+                print(cantidad_palabras)
 
-                    print(palabra)
+                for posicion in range(cantidad_palabras):
+
+                    hay_espacios[posicion] = hay_espacios[posicion].replace(hay_espacios[posicion],hay_espacios[posicion].capitalize())
+
+                    print(hay_espacios[posicion])
    
                 print(hay_espacios)
+                
+                unir_espacios = " ".join(hay_espacios)
 
-            print(superheroe[key])
+                print(unir_espacios)
+
+                superheroe[key] = superheroe[key].replace(superheroe[key],unir_espacios)
+
+                print(superheroe[key])
+
+            elif hay_espacios == None:
+
+                hay_espacios = re.search("-",superheroe[key])
+
+                if (not hay_espacios == None):
+
+                    hay_espacios = superheroe[key].split("-")
+
+                    cantidad_palabras = len(hay_espacios)
+
+                    print(cantidad_palabras)
+
+                    for posicion in range(cantidad_palabras):
+
+                        hay_espacios[posicion] = hay_espacios[posicion].replace(hay_espacios[posicion],hay_espacios[posicion].capitalize())
+
+                        print(hay_espacios[posicion])
+    
+                        print(hay_espacios)
+                
+                    unir_espacios = "-".join(hay_espacios)
+
+                    print(unir_espacios)
+
+                    superheroe[key] = superheroe[key].replace(superheroe[key],unir_espacios)
+
+                    print(superheroe[key])
+
+            else:
+
+                superheroe[key] = superheroe[key].replace(superheroe[key],superheroe[key].capitalize())
+
+
+
+            #print(superheroe[key])
 
                 #print(f"\t{letra}")
 
 
     #print(f"{superheroe['nombre']:>20} - {superheroe['identidad']:<30} {superheroe['empresa']:<15} {superheroe['altura']:10.2f} {superheroe['peso']:10.2f} {superheroe['genero']:<3} {superheroe['color_ojos']:>30} {superheroe['color_pelo']:<20} {superheroe['fuerza']:>5} {superheroe['inteligencia']}")
 
+def buscar_espacio_o_guin(cadena: str)-> str:
+
+    pass
+
+def obterner_nombre(superheroe: dict):
+
+    ret_nombre = None
+
+    for key in superheroe:
+
+        if key == "nombre":
+
+            hay_espacios = re.search(" ",superheroe[key])
+
+            if (hay_espacios):
+
+                hay_espacios = superheroe[key].split(" ")
+
+                cantidad_palabras = len(hay_espacios)
+
+                for posicion in range(cantidad_palabras):
+
+                    hay_espacios[posicion] = hay_espacios[posicion].replace(hay_espacios[posicion],hay_espacios[posicion].capitalize())
+                
+                ret_nombre = " ".join(hay_espacios)
+
+            elif hay_espacios == None:
+
+                hay_guiones = re.search("-",superheroe[key])
+
+                if (not hay_guiones == None):
+
+                    hay_guiones = superheroe[key].split("-")
+
+                    cantidad_palabras = len(hay_guiones)
+
+                    for posicion in range(cantidad_palabras):
+
+                        hay_guiones[posicion] = hay_guiones[posicion].replace(hay_guiones[posicion],hay_guiones[posicion].capitalize())
+                
+                    ret_nombre = "-".join(hay_guiones)
+
+                else:
+
+                 ret_nombre = superheroe[key].replace(superheroe[key],superheroe[key].capitalize())
+
+            
+
+    return ret_nombre
 
 def cargar_lista(lista_personajes: list, lista_destino: list)-> None:
 
